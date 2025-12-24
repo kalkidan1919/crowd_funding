@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import api from '../api';
 
+/**
+ * User interface represents the authenticated user.
+ */
 interface User {
     user_id: number;
     email: string;
@@ -10,6 +13,9 @@ interface User {
     updated_at: string;
 }
 
+/**
+ * AuthContextType defines the context structure for authentication.
+ */
 interface AuthContextType {
     user: User | null;
     token: string | null;
@@ -105,3 +111,5 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
+
+// ✅ End of AuthProvider file
