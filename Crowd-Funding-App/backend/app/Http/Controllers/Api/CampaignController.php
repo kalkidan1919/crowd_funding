@@ -4,3 +4,8 @@ public function store(Request $request): JsonResponse
     $campaign = Campaign::create(array_merge($request->all(), ['creator_id' => $request->user()->user_id]));
     return response()->json($campaign, 201);
 }
+public function show(string $id): JsonResponse
+{
+    $campaign = Campaign::findOrFail($id);
+    return response()->json($campaign);
+}
